@@ -34,13 +34,12 @@ frame scales as one composition.
 | 🎮 **P3R-faithful UI** | Skewed nav, red active underlay, HUD panels, SFX on navigate/confirm |
 | 🗂️ **Data-driven Resume** | Edit three arrays at the top of `Resume.tsx` — never the JSX |
 | 💬 **Persona dialogue easter egg** | About page renders a Social-Link style typewriter box (SVG, in code) |
+| 🔗 **Animated Social Links** | Per-link accent glow + floating "shatter" particles |
+| ⚡ **Zero UI deps** | Just Next.js + framer-motion — the design lives in the components |
 
 > 🃏 **Side note:** yes, the About page guest-stars **Makoto Niijima** — and yes, I know she's
 > from **Persona 5**, not 3. 😄 She's my personal favourite, so she got a cameo in my P3R-themed
 > menu. Consider it a deliberate cross-over, not a lore slip.
-| 🔗 **Animated Social Links** | Per-link accent glow + floating "shatter" particles |
-| 📱 **Mobile reflow** *(WIP)** | Menu screen reflows on phones via a `useIsMobile` hook |
-| ⚡ **Zero UI deps** | Just Next.js + framer-motion — the design lives in the components |
 
 ---
 
