@@ -1,6 +1,21 @@
 # Bhargav's Persona — Project Status
 
-**Last updated:** 2026-06-14 (session 2)
+**Last updated:** 2026-06-14 (session 4)
+
+## 🚀 DEPLOYED — live as of 2026-06-14 s3
+- **Repo:** `7Bhargav7/Persona-themed-website` (GitHub, **private**) — this is **Bhargav's own repo now**, created this session. Old `mikedimeji/persona-portfolio` origin was replaced. History was rebuilt into a single clean commit (orphan) to strip oversized video blobs. **Push-to-`main` auto-deploys** via Vercel — so commit + push to ship.
+- **Host:** Vercel (free Hobby), auto-detects Next.js. Live URL `persona-themed-website-tawny.vercel.app`.
+- **Domain:** `zykan.me` (Namecheap, free `.me` from GitHub Student Pack). DNS in Namecheap Advanced DNS: `A @ 216.198.79.1` + `CNAME www 6f1b302cfecb5a6d.vercel-dns-017.com` (+ keep the SPF TXT). Apex redirects to `www`. SSL auto-issued by Vercel. (Deleted the GitHub-Pages records Namecheap auto-added — 185.199.x.)
+- **git creds:** set global `credential.helper=manager` so pushes auth via GCM popup.
+- ⚠️ **GitHub 100MB limit:** videos must stay compressed. `_originals/` backups + `*.prproj`/`*.prin` are gitignored. ffmpeg installed (winget Gyan.FFmpeg) — re-compress with `libx264 -crf 23..30 -movflags +faststart -an`.
+
+### Session 3 feature work (2026-06-14)
+- **About reworked** (`About.tsx`) — replaced the old Michael-Oladimeji "ENTER TO REVEAL" screen with a **P5 Social-Link dialogue box** (easter-egg; Makoto = his fav from P5). Code-rendered jagged white-outline box (SVG path, **pointer on the LEFT toward Makoto**, blue **MAKOTO** name tag top-right), **typewriter** text + soft blips, **tap/Enter to advance** pages (loops), 5 pages: Makoto intro + kawaii ASCII + tsundere kaomoji → "introduce Bhargav" → smoothed lead-in into the original lines. Background = `about-makoto.png` (Bhargav's exported SVG → rasterized, **clean plate w/o the baked box**; slimmed 16MB→0.75MB @1920). **Phantom Thieves logo** badge top-right (`p5-logo.png`, gray-keyed to transparent from `persona 5.jpg`) so people know he knows P5. Animations: outline draw-in, name-tag slam, drifting confetti shards.
+- **Menu active item** (`Menu.tsx`) — dropped the flat red line; now a **red underlay peeking behind the white panel** (P5 look) + **dynamic hover spacing** (active item grows `marginTop 0.16em / marginBottom 0.52em` to push neighbors apart, showing blue between the red and the next line). Tried/rejected: triangle-slash + black-outline-text renditions.
+- **Menu videos** — fixed the slow/low-res start: **blob-preload** both menu videos fully before play, loop video always running underneath so intro→loop has no flash, reveal gated on `canplaythrough`/`onPlaying`. Re-encoded smaller + `+faststart`.
+- **Socials** — bg video now `status.enhanced.mp4`; **email fixed** (`mailto:` opens mail client via `location.href`; `window.open(_blank)` was opening a dead tab) via shared `openLink()`.
+
+---
 **What it is:** A Persona 3 Reload–themed personal portfolio (personal site, not TraceGI).
 **Owner:** Bhargav Kundu
 
@@ -96,6 +111,25 @@ The old CONTACT/Socials screen is now the **SOCIAL LINKS** screen and the menu w
 
 The red **`← BACK TO MENU`** button (Resume's pattern) is now on **About, Social Links, and Side Projects** too. Each takes an **`onBack` prop**; `Menu.tsx` has a shared **`backToMenu`** helper (plays closeSfx + `transitionTo("menu")`) passed to all four sub-screens. Existing keyboard-hint clusters were nudged up so they don't overlap the button. ESC still works everywhere. `Github.tsx` still dead/unwired (no onBack).
 
+## 🚧 PARKED — Mobile / responsive view (started 2026-06-14 s4, paused mid-tune)
+
+**Status:** in progress, **Menu screen only**, paused. Desktop is **unaffected** (every change is gated behind an `isMobile` branch). Other 4 screens (Resume, Socials, About, Side Projects) are **still desktop-only / not yet reflowed**.
+
+**The whole site is `vw`/`vh` for a 16:9 desktop frame** — mobile is a *separate vertical reflow per screen*, not a tweak. Decision (Bhargav): **full reflow** approach, **test on his actual phone** over home Wi-Fi.
+
+**Done so far:**
+- New hook `components/useIsMobile.ts` — `matchMedia(max-width:768px)`; each screen branches on it. Reuse for the other screens.
+- `Menu.tsx` mobile branches: video centered (no `translateX(15%)`) + `objectPosition: "22% center"`; **BHARGAV** → horizontal top header (`16vw`) instead of giant rotated side graphic; wallet/status box → top-right, fonts bumped to readable `vw`; nav stack → lower-left (`bottom:6vh; left:5vw`), labels `clamp(2rem,9vw,3.2rem)`; keyboard-controls HUD hidden on mobile.
+- Splash: `onClick` → `onPointerDown` + `touchAction:"manipulation"` (more reliable on touch).
+
+**Dev/testing setup:**
+- Run `npm run dev -- -H 0.0.0.0`, open `http://<PC-IP>:3000` on phone (same Wi-Fi). PC IP was `192.168.1.9` (re-check with `ipconfig`).
+- ⚠️ **Next 16 blocks cross-origin dev resources** → phone couldn't load JS, page was frozen/unresponsive. Fixed via `allowedDevOrigins: ["192.168.1.9"]` in `next.config.ts`. **Update that IP if the LAN IP changes**, or the phone freezes again. (This is dev-only; doesn't affect the deployed Vercel site.)
+
+**Open issue when paused (see Bhargav's phone screenshot):** Menu header/wallet/nav look good, BUT (1) **character was cropped out of frame** — just adjusted `objectPosition` to `22% center` to pull it in, NOT yet confirmed on phone; (2) **big dead blue space in the middle** — expected to fill once the character is in frame; if not, pull the nav up. **Next step = reload on phone, tune `objectPosition` %, then decide on dead space.**
+
+---
+
 ## ⏭️ NEXT SESSION — TODO
 
 1. **Wire remaining screens with real info.** Resume ✅ · LINKS ✅. Still showing *original owner's* data:
@@ -104,9 +138,10 @@ The red **`← BACK TO MENU`** button (Resume's pattern) is now on **About, Soci
    - **Screen mapping (current):** ABOUT→`about`, RESUME→`resume`, PROJECTS→`sideproj`, LINKS→`socials`.
 2. **Make the other screens mouse-first** — BACK TO MENU button ✅ (all sub-pages). Still TODO: clickable reveal/controls on About (the ENTER TO REVEAL affordance is still keyboard-only + illegible).
 3. **(Optional) font experiment** on the menu.
-4. **Deploy** to Vercel (free, GitHub Student Pack). Repo not yet initialized for his own remote.
+4. **Mobile / responsive view** — see the 🚧 PARKED section above. Menu reflow started & paused mid-tune; other 4 screens not started.
+5. **Deploy** ✅ DONE — see the DEPLOYED section at the top (Vercel + `zykan.me`).
 
-> ⚙️ **Git:** this is NOT Bhargav's repo — commit **locally only, never push**. Assets are uploaded separately. (Local commits squash everything pending in the working tree.)
+> ⚙️ **Git:** now on Bhargav's own repo `7Bhargav7/Persona-themed-website` (private). **Commit + push to `main` = auto-deploy** to Vercel. Keep videos under 100MB (compress with ffmpeg). The old "never push" rule referred to the original mikedimeji clone and no longer applies.
 
 **Contact facts** (confirmed 2026-06-14):
 Shillong / Bhubaneswar · +91 6009189497 · github.com/7Bhargav7 · linkedin.com/in/bhargav-kundu-89b788278 · Instagram @bzekai_7 · email **`bhargavkundu9862@gmail.com`** ✅ (the resume one — NOT the Claude-profile `5` address). No YouTube.
