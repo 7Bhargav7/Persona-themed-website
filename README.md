@@ -4,7 +4,7 @@
 
 ### A personal portfolio built as a **Persona 3 Reload** main menu.
 
-[![Live Site](https://img.shields.io/badge/live-zykan.me-48d2ff?style=for-the-badge)](https://zykan.me)
+[![Live Site](https://img.shields.io/badge/live-www.zykan.me-48d2ff?style=for-the-badge)](https://www.zykan.me)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-e8002d?style=for-the-badge)](LICENSE)
@@ -34,6 +34,10 @@ frame scales as one composition.
 | 🎮 **P3R-faithful UI** | Skewed nav, red active underlay, HUD panels, SFX on navigate/confirm |
 | 🗂️ **Data-driven Resume** | Edit three arrays at the top of `Resume.tsx` — never the JSX |
 | 💬 **Persona dialogue easter egg** | About page renders a Social-Link style typewriter box (SVG, in code) |
+
+> 🃏 **Side note:** yes, the About page guest-stars **Makoto Niijima** — and yes, I know she's
+> from **Persona 5**, not 3. 😄 She's my personal favourite, so she got a cameo in my P3R-themed
+> menu. Consider it a deliberate cross-over, not a lore slip.
 | 🔗 **Animated Social Links** | Per-link accent glow + floating "shatter" particles |
 | 📱 **Mobile reflow** *(WIP)** | Menu screen reflows on phones via a `useIsMobile` hook |
 | ⚡ **Zero UI deps** | Just Next.js + framer-motion — the design lives in the components |
