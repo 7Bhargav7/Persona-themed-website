@@ -45,9 +45,6 @@ frame scales as one composition.
 
 ## 📸 Screenshots
 
-> Drop the images into `docs/screenshots/` with these exact names and they'll appear below.
-> A GIF of the menu animating works great as the first one.
-
 <div align="center">
 
 | Main Menu | About |
