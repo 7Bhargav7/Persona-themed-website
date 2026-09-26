@@ -8,6 +8,7 @@ import Github from "./Github";
 import Socials from "./Socials";
 import SideProjects from "./Sideprojects";
 import Transition from "./Transition";
+import { useIsMobile } from "./useIsMobile";
 
 const TRACKS = [
   "/audio/reloadost-1.mp3",
@@ -37,6 +38,8 @@ const triClip = (w: number, h: number) =>
   `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`;
 
 export default function Menu() {
+
+  const isMobile = useIsMobile();
 
   const [started, setStarted]             = useState(false);
   const [introFinished, setIntroFinished] = useState(false);
@@ -218,9 +221,9 @@ export default function Menu() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            onClick={handleStart}
+            onPointerDown={handleStart}
             className="absolute inset-0 z-[9999] flex flex-col items-center justify-center cursor-pointer select-none"
-            style={{ background: "#000" }}
+            style={{ background: "#000", touchAction: "manipulation" }}
           >
             <motion.div
               animate={{ opacity: [0.4, 1, 0.4] }}
@@ -250,7 +253,7 @@ export default function Menu() {
               autoPlay loop muted playsInline preload="auto"
               src={loopBlobRef.current ?? "/videos/menu.mp4"}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: "translateX(15%)", zIndex: 1 }}
+              style={{ transform: isMobile ? "none" : "translateX(15%)", objectPosition: isMobile ? "22% center" : "center", zIndex: 1 }}
             />
           )}
 
@@ -264,7 +267,8 @@ export default function Menu() {
               onEnded={() => setIntroFinished(true)}
               className="absolute inset-0 w-full h-full object-cover"
               style={{
-                transform: "translateX(15%)",
+                transform: isMobile ? "none" : "translateX(15%)",
+                objectPosition: isMobile ? "22% center" : "center",
                 zIndex: 2,
                 opacity: introFinished ? 0 : (menuVidReady ? 1 : 0),
                 transition: "opacity 0.4s ease",
@@ -281,7 +285,19 @@ export default function Menu() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                style={{
+                style={isMobile ? {
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  top: "2.5vh",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 6,
+                  pointerEvents: "none",
+                  userSelect: "none",
+                  overflow: "visible",
+                } : {
                   position: "absolute",
                   left: "-1vw",
                   top: 0,
@@ -298,12 +314,12 @@ export default function Menu() {
               >
                 <span style={{
                   fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: "35vh",
-                  letterSpacing: "0",
+                  fontSize: isMobile ? "16vw" : "35vh",
+                  letterSpacing: isMobile ? "0.02em" : "0",
                   lineHeight: 1,
                   color: "#0a0f1c",
                   whiteSpace: "nowrap",
-                  transform: "rotate(-90deg)",
+                  transform: isMobile ? "none" : "rotate(-90deg)",
                 }}>
                   BHARGAV
                 </span>
@@ -314,7 +330,17 @@ export default function Menu() {
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                style={{
+                style={isMobile ? {
+                  position: "absolute",
+                  top: "13vh",
+                  right: "4vw",
+                  zIndex: 25,
+                  background: "#ffffff",
+                  border: "2px solid #0a0f1c",
+                  padding: "2vw 3vw 2.4vw",
+                  width: "40vw",
+                  pointerEvents: "none",
+                } : {
                   position: "absolute",
                   top: "7vh",
                   left: "20vw",
@@ -326,17 +352,17 @@ export default function Menu() {
                   pointerEvents: "none",
                 }}
               >
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2.6vw", lineHeight: 0.95, color: "#0a0f1c", letterSpacing: "0.02em" }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "7vw" : "2.6vw", lineHeight: 0.95, color: "#0a0f1c", letterSpacing: "0.02em" }}>
                   ₹0
                 </div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "0.85vw", letterSpacing: "0.22em", color: "#2a3340", marginTop: 1 }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340", marginTop: 1 }}>
                   CURRENT WALLET
                 </div>
-                <div style={{ height: 2, background: "#0a0f1c", margin: "0.6vw 0 0.5vw" }} />
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "0.85vw", letterSpacing: "0.22em", color: "#2a3340" }}>
+                <div style={{ height: 2, background: "#0a0f1c", margin: isMobile ? "1.6vw 0 1.4vw" : "0.6vw 0 0.5vw" }} />
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340" }}>
                   STATUS
                 </div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.55vw", letterSpacing: "0.08em", color: "#1f6fb2", lineHeight: 1 }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "4.4vw" : "1.55vw", letterSpacing: "0.08em", color: "#1f6fb2", lineHeight: 1 }}>
                   SEEKING
                 </div>
                 {/* corner wedge */}
@@ -345,7 +371,16 @@ export default function Menu() {
 
               {/* ── RIGHT BLOCK: navigation ── */}
               <div
-                style={{
+                style={isMobile ? {
+                  position: "absolute",
+                  bottom: "6vh",
+                  left: "5vw",
+                  zIndex: 20,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  pointerEvents: "none",
+                } : {
                   position: "absolute",
                   top: "30vh",
                   left: "56vw",
@@ -421,7 +456,7 @@ export default function Menu() {
                           position: "relative",
                           zIndex: 2,
                           fontFamily: "'Bebas Neue', sans-serif",
-                          fontSize: "clamp(2.6rem, 6.25vw, 7.5rem)",
+                          fontSize: isMobile ? "clamp(2rem, 9vw, 3.2rem)" : "clamp(2.6rem, 6.25vw, 7.5rem)",
                           letterSpacing: "0.01em",
                           whiteSpace: "nowrap",
                           userSelect: "none",
@@ -439,8 +474,8 @@ export default function Menu() {
                 </nav>
               </div>
 
-              {/* ── CONTROLS — bottom-right HUD ── */}
-              <motion.div
+              {/* ── CONTROLS — bottom-right HUD (desktop only) ── */}
+              {!isMobile && <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.5 }}
@@ -462,7 +497,7 @@ export default function Menu() {
                     <span>{label}</span>
                   </div>
                 ))}
-              </motion.div>
+              </motion.div>}
             </>
           )}
 
