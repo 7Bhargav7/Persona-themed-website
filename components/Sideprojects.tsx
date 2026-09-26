@@ -110,7 +110,7 @@ export default function SideProjects({ onBack }: { onBack?: () => void }) {
           animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
           transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "Persona",
+            fontFamily: "var(--font-persona)",
             fontSize: "clamp(3rem, 8vw, 7rem)",
             color: "#67e8f9",
             letterSpacing: "0.05em",
@@ -128,7 +128,7 @@ export default function SideProjects({ onBack }: { onBack?: () => void }) {
           animate={{ opacity: mounted ? 1 : 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "var(--font-bebas-neue), sans-serif",
             fontSize: 22,
             letterSpacing: 6,
             color: "rgba(255,255,255,0.35)",
@@ -153,7 +153,7 @@ export default function SideProjects({ onBack }: { onBack?: () => void }) {
           flexDirection: "column",
           alignItems: "flex-end",
           gap: 5,
-          fontFamily: "'Bebas Neue', sans-serif",
+          fontFamily: "var(--font-bebas-neue), sans-serif",
           zIndex: 20,
           pointerEvents: "none",
         }}
@@ -170,7 +170,7 @@ export default function SideProjects({ onBack }: { onBack?: () => void }) {
         style={{
           position: "absolute", bottom: 20, right: 28, zIndex: 20,
           display: "flex", alignItems: "center", gap: 10,
-          fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 2,
+          fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 2,
           color: "#fff", background: "#c4001a", border: "none", cursor: "pointer",
           padding: "10px 18px",
           clipPath: "polygon(12px 0, 100% 0, 100% 100%, 0 100%)",

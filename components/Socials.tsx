@@ -376,7 +376,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.14vw" }}>
                     <span
                       style={{
-                        fontFamily: "'Anton', sans-serif",
+                        fontFamily: "var(--font-anton), sans-serif",
                         fontSize: "2.36vw",
                         letterSpacing: "0.14vw",
                         transform: "skewX(-9deg)",
@@ -389,7 +389,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Bebas Neue', sans-serif",
+                        fontFamily: "var(--font-bebas-neue), sans-serif",
                         fontSize: "1.04vw",
                         letterSpacing: "0.14vw",
                         fontWeight: 700,
@@ -443,7 +443,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
 
             <span
               style={{
-                fontFamily: "'Bebas Neue', sans-serif",
+                fontFamily: "var(--font-bebas-neue), sans-serif",
                 fontSize: "1.45vw",
                 letterSpacing: "0.21vw",
                 color: "#fff",
@@ -462,7 +462,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
             <div key={active} className="sc-right-nav-pop" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.49vw" }}>
               <span
                 style={{
-                  fontFamily: "'Anton', sans-serif",
+                  fontFamily: "var(--font-anton), sans-serif",
                   fontSize: "3.05vw",
                   letterSpacing: "0.28vw",
                   lineHeight: 1,
@@ -490,7 +490,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
 
             <span
               style={{
-                fontFamily: "'Bebas Neue', sans-serif",
+                fontFamily: "var(--font-bebas-neue), sans-serif",
                 fontSize: "1.45vw",
                 letterSpacing: "0.21vw",
                 color: "#fff",
@@ -590,7 +590,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
                 style={{
                   flex: 1,
                   marginLeft: "1.11vw",
-                  fontFamily: "'Anton', sans-serif",
+                  fontFamily: "var(--font-anton), sans-serif",
                   fontSize: "1.59vw",
                   letterSpacing: "0.14vw",
                   transform: "skewX(-9deg)",
@@ -610,7 +610,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
                   gap: "0.55vw",
                   paddingRight: "1.8vw",
                   flexShrink: 0,
-                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontFamily: "var(--font-bebas-neue), sans-serif",
                   fontSize: "1.45vw",
                   letterSpacing: "0.14vw",
                   color: live ? item.accent : "rgba(255,255,255,0.55)",
@@ -634,7 +634,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
           flexDirection: "column",
           alignItems: "flex-end",
           gap: "0.35vw",
-          fontFamily: "'Bebas Neue', sans-serif",
+          fontFamily: "var(--font-bebas-neue), sans-serif",
           zIndex: 50,
           pointerEvents: "none",
           opacity: mounted ? 1 : 0,
@@ -655,7 +655,7 @@ export default function Socials({ onBack }: { onBack?: () => void }) {
         style={{
           position: "fixed", bottom: "2.4vh", right: "1.94vw", zIndex: 60,
           display: "flex", alignItems: "center", gap: 10,
-          fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 2,
+          fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 2,
           color: "#fff", background: "#c4001a", border: "none", cursor: "pointer",
           padding: "10px 18px",
           clipPath: "polygon(12px 0, 100% 0, 100% 100%, 0 100%)",

@@ -226,7 +226,7 @@ export default function Github() {
               {/* ROLE */}
               <div
                 style={{
-                  fontFamily: "'Anton', sans-serif",
+                  fontFamily: "var(--font-anton), sans-serif",
                   fontSize: 50,
                   letterSpacing: -2,
                   color: "#fff",
@@ -246,7 +246,7 @@ export default function Github() {
                   <span style={{ fontSize: 22, userSelect: "none" }}>{ITEM.icon}</span>
                   <span
                     style={{
-                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontFamily: "var(--font-bebas-neue), sans-serif",
                       fontSize: 28,
                       letterSpacing: 4,
                       color: "#111",
@@ -258,7 +258,7 @@ export default function Github() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontFamily: "var(--font-bebas-neue), sans-serif",
                     fontSize: 14,
                     letterSpacing: 2,
                     color: "rgba(0,0,0,0.45)",
@@ -274,8 +274,8 @@ export default function Github() {
                 {ITEM.stats.map(s => (
                   <div key={s.tag} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                     <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-                      <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 9, letterSpacing: 1.5, padding: "1px 4px", border: `1px solid ${s.color}`, color: s.color, lineHeight: 1.4, userSelect: "none" }}>{s.tag}</span>
-                      <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, fontStyle: "italic", color: "#111", letterSpacing: 1, userSelect: "none" }}>{s.value}</span>
+                      <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 9, letterSpacing: 1.5, padding: "1px 4px", border: `1px solid ${s.color}`, color: s.color, lineHeight: 1.4, userSelect: "none" }}>{s.tag}</span>
+                      <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 26, fontStyle: "italic", color: "#111", letterSpacing: 1, userSelect: "none" }}>{s.value}</span>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: 1, marginTop: 2, width: "100%" }}>
                       <div style={{ height: 3, background: s.color, width: "100%" }} />
@@ -304,11 +304,11 @@ export default function Github() {
             zIndex: 50,
           }}
         >
-          <span className="gh-arrow-left" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "#c4001a" }}>◄</span>
-          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 100, letterSpacing: 3, lineHeight: 1, color: "#fff", WebkitTextStroke: "2px #000", userSelect: "none" }}>LB</span>
-          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: 3, color: "#111", padding: "0 8px", userSelect: "none" }}>GITHUB</span>
-          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 100, letterSpacing: 3, lineHeight: 1, color: "#fff", WebkitTextStroke: "2px #000", userSelect: "none" }}>RB</span>
-          <span className="gh-arrow-right" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "#c4001a" }}>►</span>
+          <span className="gh-arrow-left" style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 22, color: "#c4001a" }}>◄</span>
+          <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 100, letterSpacing: 3, lineHeight: 1, color: "#fff", WebkitTextStroke: "2px #000", userSelect: "none" }}>LB</span>
+          <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 28, letterSpacing: 3, color: "#111", padding: "0 8px", userSelect: "none" }}>GITHUB</span>
+          <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 100, letterSpacing: 3, lineHeight: 1, color: "#fff", WebkitTextStroke: "2px #000", userSelect: "none" }}>RB</span>
+          <span className="gh-arrow-right" style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 22, color: "#c4001a" }}>►</span>
         </div>
       )}
 
@@ -356,11 +356,11 @@ export default function Github() {
               style={{ height: "55%", width: "auto", flexShrink: 0, marginLeft: 14, objectFit: "contain" }}
             />
 
-            <span style={{ flex: 1, fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, letterSpacing: 2, color: "#111", padding: "0 14px", userSelect: "none" }}>
+            <span style={{ flex: 1, fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 22, letterSpacing: 2, color: "#111", padding: "0 14px", userSelect: "none" }}>
               GITHUB PROFILE
             </span>
 
-            <span style={{ height: "70%", background: "#000", display: "flex", alignItems: "center", padding: "0 12px", fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 1, color: "#fff", flexShrink: 0, borderRadius: 6, marginRight: 4, userSelect: "none" }}>
+            <span style={{ height: "70%", background: "#000", display: "flex", alignItems: "center", padding: "0 12px", fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 1, color: "#fff", flexShrink: 0, borderRadius: 6, marginRight: 4, userSelect: "none" }}>
               OPEN
             </span>
           </div>
@@ -376,7 +376,7 @@ export default function Github() {
           flexDirection: "column",
           alignItems: "flex-end",
           gap: 5,
-          fontFamily: "'Bebas Neue', sans-serif",
+          fontFamily: "var(--font-bebas-neue), sans-serif",
           zIndex: 50,
           pointerEvents: "none",
           opacity: mounted ? 1 : 0,
