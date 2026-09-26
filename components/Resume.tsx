@@ -259,7 +259,7 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
       }}>
 
         <div style={{
-          fontFamily: "var(--font-anton), sans-serif", fontSize: 92, lineHeight: 0.9,
+          fontFamily: "'Anton', sans-serif", fontSize: 92, lineHeight: 0.9,
           color: "#f6fbff", letterSpacing: 2, margin: "0 0 6px 12px",
           opacity: mounted ? 1 : 0, transform: mounted ? "translateX(0)" : "translateX(-24px)",
           transition: "opacity 0.35s ease, transform 0.35s ease",
@@ -297,14 +297,14 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                   display: "flex", alignItems: "center", justifyContent: "center",
                   transform: "rotate(-8deg)", boxShadow: "0 4px 0 rgba(0,0,0,0.28)", zIndex: 2,
                 }}>
-                  <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 36, color: "#d2fdff", letterSpacing: 1, transform: "rotate(8deg)", display: "block" }}>{item.badge}</span>
+                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 36, color: "#d2fdff", letterSpacing: 1, transform: "rotate(8deg)", display: "block" }}>{item.badge}</span>
                 </div>
                 {/* INNER */}
                 <div style={{ position: "absolute", inset: 0, padding: "14px 22px 14px 62px", display: "flex", alignItems: "flex-start", justifyContent: "space-between", zIndex: 1 }}>
-                  <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 56, lineHeight: 0.9, letterSpacing: 1, color: isActive ? "#000" : "#a5f6ff", transition: "color 0.22s ease" }}>{item.title}</div>
+                  <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 56, lineHeight: 0.9, letterSpacing: 1, color: isActive ? "#000" : "#a5f6ff", transition: "color 0.22s ease" }}>{item.title}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 2, flexShrink: 0 }}>
-                    <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 28, letterSpacing: 2, color: isActive ? "#000" : "#9ffbff", transition: "color 0.22s ease" }}>RANK</div>
-                    <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 70, lineHeight: 0.82, color: isActive ? "#000" : "#9ffbff", transition: "color 0.22s ease" }}>{item.rank}</div>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: 2, color: isActive ? "#000" : "#9ffbff", transition: "color 0.22s ease" }}>RANK</div>
+                    <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 70, lineHeight: 0.82, color: isActive ? "#000" : "#9ffbff", transition: "color 0.22s ease" }}>{item.rank}</div>
                   </div>
                 </div>
                 {/* SUBTITLE */}
@@ -314,7 +314,7 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                   clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
                   display: "flex", alignItems: "center", padding: "0 18px", zIndex: 1,
                 }}>
-                  <span style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 28, lineHeight: 1, letterSpacing: 1, color: isActive ? "#fff" : "#041238" }}>{item.subtitle}</span>
+                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, lineHeight: 1, letterSpacing: 1, color: isActive ? "#fff" : "#041238" }}>{item.subtitle}</span>
                 </div>
               </div>
             </div>
@@ -350,9 +350,9 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
               clipPath: "polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%)",
               color: "#08153f", boxShadow: "10px 0 0 rgba(255,94,136,0.88)",
             }}>
-              <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 46, lineHeight: 1 }}>{summary.index}</div>
-              <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 42, lineHeight: 0.92, letterSpacing: 1 }}>{summary.title}</div>
-              <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 42, letterSpacing: 2 }}>{summary.progress}</div>
+              <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 46, lineHeight: 1 }}>{summary.index}</div>
+              <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 42, lineHeight: 0.92, letterSpacing: 1 }}>{summary.title}</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 42, letterSpacing: 2 }}>{summary.progress}</div>
             </div>
 
             {/* ROWS */}
@@ -364,9 +364,9 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                   background: "rgba(8,18,72,0.96)", clipPath: rowClip,
                   boxShadow: "inset 0 0 0 1px rgba(140,239,255,0.12)",
                 }}>
-                  <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 22, letterSpacing: 1, color: "#94f4ff" }}>{row.index}</div>
-                  <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 22, lineHeight: 1.1, color: "#f2fcff" }}>{row.title}</div>
-                  <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 18, color: "#06133b", background: "#8df6ff", padding: "5px 10px", clipPath: "polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%)", whiteSpace: "nowrap" }}>{row.status}</div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, letterSpacing: 1, color: "#94f4ff" }}>{row.index}</div>
+                  <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 22, lineHeight: 1.1, color: "#f2fcff" }}>{row.title}</div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, color: "#06133b", background: "#8df6ff", padding: "5px 10px", clipPath: "polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%)", whiteSpace: "nowrap" }}>{row.status}</div>
                 </div>
               ))}
             </div>
@@ -374,9 +374,9 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
             {/* BOTTOM */}
             {summary.bottom.bullets.length > 0 && (
               <div style={{ marginTop: 22, padding: 18, background: "rgba(5,13,57,0.97)", clipPath: "polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%)" }}>
-                <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 30, letterSpacing: 2, color: "#91f5ff", marginBottom: 14 }}>{summary.bottom.title}</div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: 2, color: "#91f5ff", marginBottom: 14 }}>{summary.bottom.title}</div>
                 {summary.bottom.bullets.map((b, i) => (
-                  <div key={i} style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 19, lineHeight: 1.2, color: "#edfaff", marginBottom: 8 }}>{b}</div>
+                  <div key={i} style={{ fontFamily: "'Anton', sans-serif", fontSize: 19, lineHeight: 1.2, color: "#edfaff", marginBottom: 8 }}>{b}</div>
                 ))}
               </div>
             )}
@@ -387,7 +387,7 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                 onClick={() => setExpanded(true)}
                 style={{
                   display: "flex", alignItems: "center", gap: 10,
-                  fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 2,
+                  fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 2,
                   color: "#06133b", background: "#8df6ff", border: "none", cursor: "pointer",
                   padding: "9px 18px",
                   clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
@@ -427,8 +427,8 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
               clipPath: "polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%)",
               color: "#08153f", boxShadow: "10px 0 0 rgba(255,94,136,0.88)",
             }}>
-              <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 32, lineHeight: 1, letterSpacing: 1 }}>{detail.title}</div>
-              <button onClick={() => setExpanded(false)} style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 17, letterSpacing: 2, color: "#08153f", background: "transparent", border: "2px solid #08153f", borderRadius: 4, padding: "5px 12px", cursor: "pointer" }}>← SUMMARY</button>
+              <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 32, lineHeight: 1, letterSpacing: 1 }}>{detail.title}</div>
+              <button onClick={() => setExpanded(false)} style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 17, letterSpacing: 2, color: "#08153f", background: "transparent", border: "2px solid #08153f", borderRadius: 4, padding: "5px 12px", cursor: "pointer" }}>← SUMMARY</button>
             </div>
 
             {/* SECTIONS */}
@@ -441,15 +441,15 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                 }}>
                   {/* SECTION HEADING */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
-                    <div style={{ fontFamily: "var(--font-anton), sans-serif", fontSize: 22, color: "#8df6ff", letterSpacing: 1 }}>{section.heading}</div>
+                    <div style={{ fontFamily: "'Anton', sans-serif", fontSize: 22, color: "#8df6ff", letterSpacing: 1 }}>{section.heading}</div>
                     {section.date && (
-                      <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 14, color: "rgba(133,244,255,0.5)", letterSpacing: 1, flexShrink: 0, marginLeft: 8 }}>{section.date}</div>
+                      <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 14, color: "rgba(133,244,255,0.5)", letterSpacing: 1, flexShrink: 0, marginLeft: 8 }}>{section.date}</div>
                     )}
                   </div>
                   {/* BULLETS */}
                   {section.bullets.map((b, bi) => (
                     <div key={bi} style={{
-                      fontFamily: "var(--font-montserrat), sans-serif", fontWeight: 300,
+                      fontFamily: "'Montserrat', sans-serif", fontWeight: 300,
                       fontSize: 13, lineHeight: 1.5, color: "#cde8ff",
                       marginBottom: 6, paddingLeft: 12,
                       borderLeft: "2px solid rgba(133,244,255,0.25)",
@@ -465,7 +465,7 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
                 onClick={() => setExpanded(false)}
                 style={{
                   display: "flex", alignItems: "center", gap: 10,
-                  fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 2,
+                  fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 2,
                   color: "#8df6ff", background: "transparent",
                   border: "2px solid rgba(141,246,255,0.65)", borderRadius: 4, cursor: "pointer",
                   padding: "8px 18px",
@@ -487,7 +487,7 @@ export default function Resume({ onBack }: { onBack?: () => void }) {
         style={{
           position: "absolute", bottom: 20, right: 28, zIndex: 20,
           display: "flex", alignItems: "center", gap: 10,
-          fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: 20, letterSpacing: 2,
+          fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: 2,
           color: "#fff", background: "#c4001a", border: "none", cursor: "pointer",
           padding: "10px 18px",
           clipPath: "polygon(12px 0, 100% 0, 100% 100%, 0 100%)",

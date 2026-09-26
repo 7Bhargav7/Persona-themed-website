@@ -45,9 +45,30 @@ export default function Menu() {
   const [introFinished, setIntroFinished] = useState(false);
   const [menuVidReady, setMenuVidReady]   = useState(false);
 
+  // Fully preload the menu videos into memory (blob) so playback never buffers/jitters on first run
   const introBlobRef = useRef<string | null>(null);
   const loopBlobRef  = useRef<string | null>(null);
-  const [vidsReady, setVidsReady] = useState(true);
+  const [vidsReady, setVidsReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [intro, loop] = await Promise.all([
+          fetch("/videos/menu-intro.mp4").then(r => r.blob()),
+          fetch("/videos/menu.mp4").then(r => r.blob()),
+        ]);
+        if (cancelled) return;
+        introBlobRef.current = URL.createObjectURL(intro);
+        loopBlobRef.current  = URL.createObjectURL(loop);
+      } catch {
+        // fall back to streaming straight from the network paths
+      } finally {
+        if (!cancelled) setVidsReady(true);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
   const [showMenu, setShowMenu]           = useState(false);
   const [active, setActive]               = useState(0);
   const [animKey, setAnimKey]             = useState(0);
@@ -189,7 +210,7 @@ export default function Menu() {
   return (
     <main className="relative w-screen h-screen overflow-hidden">
 
-      <audio ref={audioRef} loop preload="metadata">
+      <audio ref={audioRef} loop preload="auto">
         <source src={randomTrack} type="audio/mpeg" />
       </audio>
 
@@ -207,7 +228,7 @@ export default function Menu() {
             <motion.div
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{ fontFamily: "var(--font-persona)", fontSize: "clamp(1.2rem, 3vw, 2rem)", color: "#67e8f9", letterSpacing: "0.2em" }}
+              style={{ fontFamily: "Persona", fontSize: "clamp(1.2rem, 3vw, 2rem)", color: "#67e8f9", letterSpacing: "0.2em" }}
             >
               PRESS START
             </motion.div>
@@ -292,7 +313,7 @@ export default function Menu() {
                 }}
               >
                 <span style={{
-                  fontFamily: "var(--font-bebas-neue), sans-serif",
+                  fontFamily: "'Bebas Neue', sans-serif",
                   fontSize: isMobile ? "16vw" : "35vh",
                   letterSpacing: isMobile ? "0.02em" : "0",
                   lineHeight: 1,
@@ -331,17 +352,17 @@ export default function Menu() {
                   pointerEvents: "none",
                 }}
               >
-                <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: isMobile ? "7vw" : "2.6vw", lineHeight: 0.95, color: "#0a0f1c", letterSpacing: "0.02em" }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "7vw" : "2.6vw", lineHeight: 0.95, color: "#0a0f1c", letterSpacing: "0.02em" }}>
                   ₹0
                 </div>
-                <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340", marginTop: 1 }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340", marginTop: 1 }}>
                   CURRENT WALLET
                 </div>
                 <div style={{ height: 2, background: "#0a0f1c", margin: isMobile ? "1.6vw 0 1.4vw" : "0.6vw 0 0.5vw" }} />
-                <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340" }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "2.6vw" : "0.85vw", letterSpacing: "0.22em", color: "#2a3340" }}>
                   STATUS
                 </div>
-                <div style={{ fontFamily: "var(--font-bebas-neue), sans-serif", fontSize: isMobile ? "4.4vw" : "1.55vw", letterSpacing: "0.08em", color: "#1f6fb2", lineHeight: 1 }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: isMobile ? "4.4vw" : "1.55vw", letterSpacing: "0.08em", color: "#1f6fb2", lineHeight: 1 }}>
                   SEEKING
                 </div>
                 {/* corner wedge */}
@@ -434,7 +455,7 @@ export default function Menu() {
                         <span style={{
                           position: "relative",
                           zIndex: 2,
-                          fontFamily: "var(--font-bebas-neue), sans-serif",
+                          fontFamily: "'Bebas Neue', sans-serif",
                           fontSize: isMobile ? "clamp(2rem, 9vw, 3.2rem)" : "clamp(2.6rem, 6.25vw, 7.5rem)",
                           letterSpacing: "0.01em",
                           whiteSpace: "nowrap",
@@ -466,7 +487,7 @@ export default function Menu() {
                   flexDirection: "column",
                   alignItems: "flex-end",
                   gap: 7,
-                  fontFamily: "var(--font-bebas-neue), sans-serif",
+                  fontFamily: "'Bebas Neue', sans-serif",
                   pointerEvents: "none",
                 }}
               >

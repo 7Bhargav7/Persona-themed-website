@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Bebas_Neue, Anton, Montserrat, Playfair_Display } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,43 +10,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const bebasNeue = Bebas_Neue({
-  weight: "400",
-  variable: "--font-bebas-neue",
-  subsets: ["latin"],
-});
-
-const anton = Anton({
-  weight: "400",
-  variable: "--font-anton",
-  subsets: ["latin"],
-});
-
-const montserrat = Montserrat({
-  weight: "300",
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  weight: ["700", "900"],
-  style: ["italic"],
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
-
-const personaFont = localFont({
-  src: "../public/fonts/persona.ttf",
-  variable: "--font-persona",
-  display: "swap",
-});
-
-const skipFont = localFont({
-  src: "../public/fonts/FOT-Skip Std B.otf",
-  variable: "--font-skip",
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -63,10 +25,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${anton.variable} ${montserrat.variable} ${playfairDisplay.variable} ${personaFont.variable} ${skipFont.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Montserrat:wght@300&family=Playfair+Display:ital,wght@1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
-

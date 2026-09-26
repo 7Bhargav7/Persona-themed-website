@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
-
-
 @font-face {
   font-family: "Persona";
-  src: var(--font-persona);
+  src: url("/fonts/persona.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Skip";
-  src: var(--font-skip);
-}
-
-* {
-  --font-bebas-neue: var(--font-bebas-neue);
+  src: url("/fonts/FOT-Skip Std B.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html,
